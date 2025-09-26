@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b10rvxcan3qja"]
+
+[ext_resource type="PackedScene" uid="uid://8sngcpklvnyd" path="res://assets/tiles/green tile.glb" id="1_wq6qj"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="green tile" parent="." instance=ExtResource("1_wq6qj")]

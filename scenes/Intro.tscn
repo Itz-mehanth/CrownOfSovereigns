@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxnnbnpr7enba"]
+
+[ext_resource type="Script" uid="uid://c5o7w8ek3ubcn" path="res://script/Intro.gd" id="1_hc7eg"]
+[ext_resource type="VideoStream" uid="uid://uxh04t5shfh7" path="res://assets/Intro.ogv" id="2_hc7eg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hc7eg")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 8.0
+offset_right = 2550.0
+offset_bottom = 1087.0
+stream = ExtResource("2_hc7eg")
+autoplay = true
+expand = true

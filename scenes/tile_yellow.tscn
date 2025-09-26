@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsagomj65udmf"]
+
+[ext_resource type="PackedScene" uid="uid://cnkehv3eqptsf" path="res://assets/tiles/castle.glb" id="1_lwwhm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="castle" parent="." instance=ExtResource("1_lwwhm")]
