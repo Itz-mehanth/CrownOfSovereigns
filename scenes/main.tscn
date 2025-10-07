@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://biunnfxtcnyay"]
+[gd_scene load_steps=10 format=3 uid="uid://ce4jl6d85m1is"]
 
 [ext_resource type="Script" uid="uid://hha28k1fkybf" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://ckvygh76al3t1" path="res://assets/env/citrus_orchard_puresky_1k.exr" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://cge3pkdxbwc1b" path="res://models/carcassonnev3.glb" id="2_tipki"]
-[ext_resource type="Texture2D" uid="uid://cvgs4y5ucyl6f" path="res://assets/ui/forest.png" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://bu02mrspjjcnn" path="res://scenes/texture_button_castle.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://dfudftihn5gd0" path="res://scenes/TileSelectorUI.gd" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cf0c888kuglxu" path="res://models/board.glb" id="9_85g3d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
@@ -59,39 +58,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67185, 4.90996, -3.47791)
 script = ExtResource("1_0wfyh")
 
 [node name="Camera3D" type="Camera3D" parent="camera"]
-transform = Transform3D(2.10734e-08, 0.707107, -0.707107, -2.10734e-08, 0.707107, 0.707107, 1, -5.32907e-15, 2.98023e-08, -58, 37, 3)
+transform = Transform3D(7.89014e-10, 0.0988058, -0.0264749, -2.94464e-09, 0.0264749, 0.0988058, 0.102291, -5.45118e-16, 3.04852e-09, -13.0941, 63.1866, -10.9116)
 fov = 44.5
 
-[node name="Control" type="Control" parent="."]
+[node name="TileSelectorUI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.159
+anchor_bottom = 0.991
+offset_right = -0.168015
+offset_bottom = -0.16803
+script = ExtResource("3_tbgi4")
 
-[node name="CastleButton" type="TextureButton" parent="Control"]
-offset_left = 92.0
-offset_top = 504.0
-offset_right = 670.0
-offset_bottom = 1215.0
-scale = Vector2(0.31733, 0.323582)
-tooltip_text = "Forest"
-texture_normal = ExtResource("3_sugp2")
-script = ExtResource("4_jyhfs")
+[node name="ScrollContainer" type="ScrollContainer" parent="TileSelectorUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.791
+anchor_bottom = 1.0
+offset_right = -0.0650024
 
-[node name="Label" type="Label" parent="Control/CastleButton"]
-layout_mode = 0
-offset_left = 34.6642
-offset_top = -132.887
-offset_right = 134.664
-offset_bottom = -102.887
-scale = Vector2(4.7, 4.7)
-text = "NEXT TILE"
+[node name="VBoxContainer" type="VBoxContainer" parent="TileSelectorUI/ScrollContainer"]
+layout_mode = 2
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(201.96, 0, 0, 0, 60, 0, 0, 0, 221.227, -45, -7.56956, 80)
 
 [node name="board" parent="StaticBody3D" instance=ExtResource("9_85g3d")]
-transform = Transform3D(0.0047647, 0, 0, 0, 0.0198, 0, 0, 0, 0.00434974, 0.247634, -0.287125, -0.426353)
+transform = Transform3D(0.00499999, 0, 0, 0, 0.005, 0, 0, 0, 0.00441045, 0.251428, -0.25, -0.421312)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.496, 0, 0, 0, 0.01, 0, 0, 0, 1.51, 0.245179, -0.170486, -0.726401)
