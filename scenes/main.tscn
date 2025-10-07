@@ -1,13 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://biunnfxtcnyay"]
+[gd_scene load_steps=11 format=3 uid="uid://biunnfxtcnyay"]
 
 [ext_resource type="Script" uid="uid://hha28k1fkybf" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://ckvygh76al3t1" path="res://assets/env/citrus_orchard_puresky_1k.exr" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://cge3pkdxbwc1b" path="res://models/carcassonnev3.glb" id="2_tipki"]
 [ext_resource type="Texture2D" uid="uid://cvgs4y5ucyl6f" path="res://assets/ui/forest.png" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://bu02mrspjjcnn" path="res://scenes/texture_button_castle.gd" id="4_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://b1qbtkk1mgyl2" path="res://assets/ui/monastary_red.png" id="5_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://5au2roye1jx2" path="res://assets/ui/monastary_blue.png" id="6_tipki"]
-[ext_resource type="Texture2D" uid="uid://be1usmw2n87bv" path="res://assets/ui/castle.png" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cf0c888kuglxu" path="res://models/board.glb" id="9_85g3d"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
@@ -17,13 +14,19 @@ energy_multiplier = 0.7
 
 [sub_resource type="Sky" id="Sky_jyhfs"]
 sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
+radiance_size = 1
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 2
+background_energy_multiplier = 0.88
 sky = SubResource("Sky_jyhfs")
+ambient_light_sky_contribution = 0.95
 ambient_light_energy = 0.66
 ssr_fade_in = 0.184672
 glow_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_sky_affect = 0.095
 adjustment_enabled = true
 adjustment_brightness = 0.75
 adjustment_contrast = 1.18
@@ -32,7 +35,8 @@ adjustment_saturation = 1.3
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
 size = Vector3(42, 1, 40)
 
-[node name="Node3D" type="Node3D"]
+[node name="Main" type="Node3D"]
+transform = Transform3D(9.776, 0, 0, 0, 9.776, 0, 0, 0, 9.776, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tbgi4")
@@ -50,10 +54,11 @@ directional_shadow_fade_start = 1.0
 directional_shadow_max_distance = 304.9
 directional_shadow_pancake_size = 0.0
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67185, 4.90996, -3.47791)
 script = ExtResource("1_0wfyh")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="Camera3D" type="Camera3D" parent="camera"]
 transform = Transform3D(2.10734e-08, 0.707107, -0.707107, -2.10734e-08, 0.707107, 0.707107, 1, -5.32907e-15, 2.98023e-08, -58, 37, 3)
 fov = 44.5
 
@@ -64,7 +69,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CastleButton" type="TextureButton" parent="Control"]
-layout_mode = 0
 offset_left = 92.0
 offset_top = 504.0
 offset_right = 670.0
@@ -74,79 +78,25 @@ tooltip_text = "Forest"
 texture_normal = ExtResource("3_sugp2")
 script = ExtResource("4_jyhfs")
 
-[node name="RedMonasteryButton" type="TextureButton" parent="Control"]
+[node name="Label" type="Label" parent="Control/CastleButton"]
 layout_mode = 0
-offset_left = 316.0
-offset_top = 540.0
-offset_right = 718.0
-offset_bottom = 975.0
-scale = Vector2(0.466807, 0.443535)
-texture_normal = ExtResource("5_o6xl0")
-script = ExtResource("4_jyhfs")
-
-[node name="BlueMonasteryButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 539.0
-offset_top = 546.0
-offset_right = 1029.0
-offset_bottom = 1099.0
-scale = Vector2(0.349593, 0.338923)
-texture_normal = ExtResource("6_tipki")
-script = ExtResource("4_jyhfs")
-
-[node name="GrassButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 741.0
-offset_top = 549.0
-offset_right = 1231.0
-offset_bottom = 1102.0
-scale = Vector2(0.341687, 0.353378)
-texture_normal = ExtResource("6_tipki")
-script = ExtResource("4_jyhfs")
-
-[node name="ForestButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 949.0
-offset_top = 553.0
-offset_right = 1351.0
-offset_bottom = 988.0
-scale = Vector2(0.368839, 0.398606)
-texture_normal = ExtResource("5_o6xl0")
-script = ExtResource("4_jyhfs")
-
-[node name="YellowButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 1155.0
-offset_top = 558.0
-offset_right = 1575.0
-offset_bottom = 1062.0
-scale = Vector2(0.377065, 0.348278)
-texture_normal = ExtResource("7_85g3d")
-script = ExtResource("4_jyhfs")
-
-[node name="GreenButton" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 1353.0
-offset_top = 569.0
-offset_right = 1931.0
-offset_bottom = 1280.0
-scale = Vector2(0.226469, 0.23488)
-texture_normal = ExtResource("3_sugp2")
-script = ExtResource("4_jyhfs")
+offset_left = 34.6642
+offset_top = -132.887
+offset_right = 134.664
+offset_bottom = -102.887
+scale = Vector2(4.7, 4.7)
+text = "NEXT TILE"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1.7, 0, 0, 0, 1, 0, 0, 0, 2.6136, -1, -10, 4)
+transform = Transform3D(201.96, 0, 0, 0, 60, 0, 0, 0, 221.227, -45, -7.56956, 80)
+
+[node name="board" parent="StaticBody3D" instance=ExtResource("9_85g3d")]
+transform = Transform3D(0.0047647, 0, 0, 0, 0.0198, 0, 0, 0, 0.00434974, 0.247634, -0.287125, -0.426353)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, 1, 0, -2.29568)
+transform = Transform3D(0.496, 0, 0, 0, 0.01, 0, 0, 0, 1.51, 0.245179, -0.170486, -0.726401)
 shape = SubResource("BoxShape3D_jyhfs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(3.11, 0, 0, 0, -2.222, 1.74846e-07, 0, -1.94253e-07, -2, 0, 0, 0)
-
 [node name="carcassonnev3" parent="." instance=ExtResource("2_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95, -5, 26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95, -0.0900165, 26)
 visible = false
-
-[node name="board" parent="." instance=ExtResource("9_85g3d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0)
