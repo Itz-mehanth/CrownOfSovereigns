@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Crown of Sovereigns"
-run/main_scene="uid://ce4jl6d85m1is"
+run/main_scene="uid://dkp7oqtu35typ"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.172293, 0.855734, 1, 1)
 boot_splash/image="uid://bg142e8afix1j"

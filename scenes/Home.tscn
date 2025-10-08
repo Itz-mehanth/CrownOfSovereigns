@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkp7oqtu35typ"]
+
+[ext_resource type="Script" uid="uid://rtv827yirnec" path="res://scenes/home.gd" id="1_ilu88"]
+[ext_resource type="Texture2D" uid="uid://baielfwlal4qq" path="res://assets/ui/Background.png" id="2_svoro"]
+[ext_resource type="Texture2D" uid="uid://xaim1wfatfi6" path="res://assets/ui/Battle.png" id="3_72wqp"]
+[ext_resource type="AudioStream" uid="uid://cpaq3sb81inml" path="res://assets/ui/war-military-army-background-music-382052.mp3" id="4_72wqp"]
+[ext_resource type="AudioStream" uid="uid://cd3885gulsfdr" path="res://assets/ui/button-ui-sound-effect-395762.mp3" id="5_72wqp"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -37.0
+offset_top = -43.0
+offset_right = 3.0
+offset_bottom = -3.0
+script = ExtResource("1_ilu88")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 918.0
+offset_top = 722.0
+offset_right = 1329.0
+offset_bottom = 1179.0
+scale = Vector2(1.29128, 1.13116)
+
+[node name="BattleButton" type="Button" parent="Buttons"]
+layout_mode = 2
+icon = ExtResource("3_72wqp")
+
+[node name="AudioBackground" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_72wqp")
+
+[node name="AudioButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_72wqp")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 35.0
+offset_top = 40.0
+offset_right = 1571.0
+offset_bottom = 712.0
+scale = Vector2(1.57683, 1.55871)
+texture = ExtResource("2_svoro")
