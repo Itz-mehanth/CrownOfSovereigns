@@ -16,6 +16,7 @@ offset_bottom = -3.0
 script = ExtResource("1_ilu88")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 918.0
 offset_top = 722.0
 offset_right = 1329.0
@@ -33,9 +34,10 @@ stream = ExtResource("4_72wqp")
 stream = ExtResource("5_72wqp")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 40.0
 offset_right = 1571.0
 offset_bottom = 712.0
-scale = Vector2(1.57683, 1.55871)
+scale = Vector2(1.57683, 1.95473)
 texture = ExtResource("2_svoro")

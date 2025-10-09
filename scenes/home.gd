@@ -6,6 +6,8 @@ extends Control
 
 func _ready():
 	# Set background
+	$Background.z_index = -999
+	$Background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	music.volume_db = 2  # lower volume slightly
 	music.play()
 	# Connect buttons

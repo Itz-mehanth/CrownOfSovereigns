@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ce4jl6d85m1is"]
+[gd_scene load_steps=24 format=3 uid="uid://ce4jl6d85m1is"]
 
 [ext_resource type="Script" uid="uid://hha28k1fkybf" path="res://scenes/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://ckvygh76al3t1" path="res://assets/env/citrus_orchard_puresky_1k.exr" id="1_tipki"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://tvpfgxsmmbyq" path="res://assets/ui/mainmenu.png" id="8_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cf0c888kuglxu" path="res://models/board.glb" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cl7r1cxwkas5b" path="res://assets/ui/defeatpopup.png" id="9_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://1uo3if1gh2iu" path="res://assets/ui/Queen.png" id="10_muem4"]
+[ext_resource type="AudioStream" uid="uid://cn58ok200f604" path="res://assets/ui/queen.mp3" id="13_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://cd3885gulsfdr" path="res://assets/ui/button-ui-sound-effect-395762.mp3" id="13_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://pcmkkar80iyc" path="res://assets/ui/place.mp3" id="14_muem4"]
 [ext_resource type="AudioStream" uid="uid://dut1alvy80lha" path="res://assets/ui/win.mp3" id="15_dp3eg"]
@@ -85,6 +87,7 @@ offset_bottom = -0.16803
 script = ExtResource("3_tbgi4")
 
 [node name="ScoreAI" type="TextureRect" parent="TileSelectorUI"]
+layout_mode = 0
 offset_left = 1829.0
 offset_top = 129.0
 offset_right = 2853.0
@@ -102,6 +105,7 @@ scale = Vector2(9.04005, 9.07667)
 text = "0"
 
 [node name="ScoreYou" type="TextureRect" parent="TileSelectorUI"]
+layout_mode = 0
 offset_left = 1835.0
 offset_top = -64.0
 offset_right = 2859.0
@@ -143,6 +147,7 @@ scale = Vector2(2.75938, 2.62371)
 texture = ExtResource("6_eb6dy")
 
 [node name="RestartButton" type="Button" parent="TileSelectorUI/WinPopup"]
+layout_mode = 0
 offset_left = 103.0
 offset_top = 327.0
 offset_right = 319.0
@@ -151,6 +156,7 @@ scale = Vector2(0.66269, 0.776032)
 icon = ExtResource("7_trceg")
 
 [node name="MainMenuButton" type="Button" parent="TileSelectorUI/WinPopup"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 327.0
 offset_right = 661.0
@@ -168,6 +174,7 @@ scale = Vector2(2.75938, 2.62371)
 texture = ExtResource("9_jkv2x")
 
 [node name="RestartButton" type="Button" parent="TileSelectorUI/LosePopup"]
+layout_mode = 0
 offset_left = 103.0
 offset_top = 327.0
 offset_right = 319.0
@@ -176,12 +183,20 @@ scale = Vector2(0.66269, 0.776032)
 icon = ExtResource("7_trceg")
 
 [node name="MainMenuButton" type="Button" parent="TileSelectorUI/LosePopup"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 327.0
 offset_right = 661.0
 offset_bottom = 498.0
 scale = Vector2(0.384035, 0.391296)
 icon = ExtResource("8_a8y0u")
+
+[node name="Queen" type="TextureRect" parent="TileSelectorUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.97661, 1.8625)
+texture = ExtResource("10_muem4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(201.96, 0, 0, 0, 60, 0, 0, 0, 221.227, -45, -7.56956, 80)
@@ -197,6 +212,9 @@ shape = SubResource("BoxShape3D_jyhfs")
 
 [node name="BattleMusicPlayer" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("6_tefeu")
+
+[node name="QueenVoice" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("13_dp3eg")
 
 [node name="BattleStartMusic" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("7_o6xl0")
