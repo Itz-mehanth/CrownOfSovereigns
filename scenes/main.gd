@@ -535,7 +535,7 @@ func _ready():
 	_setup_turn_indicator()
 	_setup_environment()
 	_setup_ambient_particles()
-	_setup_sun()
+	_setup_moon()
 	
 	# Start with Game Mode selection
 	_setup_gamemode_popup()
@@ -1627,38 +1627,38 @@ func _setup_ambient_particles() -> void:
 	add_child(particles)
 	particles.global_position = orbit_center # Center on board
 
-func _setup_sun() -> void:
-	if get_node_or_null("TheSun"):
+func _setup_moon() -> void:
+	if get_node_or_null("TheMoon"):
 		return
 		
-	var sun = MeshInstance3D.new()
-	sun.name = "TheSun"
+	var moon = MeshInstance3D.new()
+	moon.name = "TheMoon"
 	
 	var mesh = SphereMesh.new()
-	mesh.radius = 60.0
-	mesh.height = 120.0
-	sun.mesh = mesh
+	mesh.radius = 40.0
+	mesh.height = 80.0
+	moon.mesh = mesh
 	
 	var mat = StandardMaterial3D.new()
 	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	mat.albedo_color = Color(1.0, 0.9, 0.6) # Bright Yellow-White
+	mat.albedo_color = Color(0.9, 0.9, 1.0) # Pale blue-white
 	mat.emission_enabled = true
-	mat.emission = Color(1.0, 0.8, 0.4) # Warm Sun
-	mat.emission_energy_multiplier = 10.0 # Blindingly bright
-	sun.material_override = mat
+	mat.emission = Color(0.9, 0.9, 1.0)
+	mat.emission_energy_multiplier = 3.0
+	moon.material_override = mat
 	
-	add_child(sun)
+	add_child(moon)
 	
 	# Position it far away in the sky
-	sun.global_position = orbit_center + Vector3(1000, 800, -1000)
+	moon.global_position = orbit_center + Vector3(1000, 800, -1000)
 	
-	# Add strong sunlight
+	# Add a soft light from the moon
 	var light = DirectionalLight3D.new()
-	light.name = "SunLight"
-	light.light_color = Color(1.0, 0.95, 0.8) # Warm sunlight
-	light.light_energy = 2.0
+	light.name = "MoonLight"
+	light.light_color = Color(0.6, 0.7, 1.0) # Blueish moonlight
+	light.light_energy = 0.5
 	light.shadow_enabled = true
-	sun.add_child(light)
+	moon.add_child(light)
 	light.look_at(orbit_center, Vector3.UP)
 
 func _add_torch_to_tile(tile: Node3D) -> void:
