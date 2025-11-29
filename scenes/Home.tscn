@@ -17,11 +17,11 @@ script = ExtResource("1_ilu88")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 918.0
-offset_top = 722.0
-offset_right = 1329.0
-offset_bottom = 1179.0
-scale = Vector2(1.29128, 1.13116)
+offset_left = 775.0
+offset_top = 624.0
+offset_right = 1186.0
+offset_bottom = 1081.0
+scale = Vector2(1.01802, 0.927959)
 
 [node name="BattleButton" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -39,5 +39,5 @@ offset_left = 35.0
 offset_top = 40.0
 offset_right = 1571.0
 offset_bottom = 712.0
-scale = Vector2(1.57683, 1.95473)
+scale = Vector2(1.26761, 1.81504)
 texture = ExtResource("2_svoro")

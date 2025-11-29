@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cdim3jgm2b1yu"]
 
-[ext_resource type="PackedScene" uid="uid://bq661sfxxebsv" path="res://assets/tiles/r11/114.glb" id="1_2lsuh"]
+[ext_resource type="PackedScene" uid="uid://wlwa0w7748xy" path="res://assets/tiles/r1/14.glb" id="1_2lsuh"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="1142" parent="." instance=ExtResource("1_2lsuh")]
+[node name="142" parent="." instance=ExtResource("1_2lsuh")]

@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyp2lnytubpvp"]
-
-[ext_resource type="PackedScene" uid="uid://cq66wyr062017" path="res://assets/tiles/monastary red.glb" id="1_dj7gk"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="monastary red" parent="." instance=ExtResource("1_dj7gk")]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdim3jgm2b1yu"]
+[gd_scene load_steps=2 format=3 uid="uid://cremqrq4yxk82"]
 
-[ext_resource type="PackedScene" uid="uid://dorj4xpu70r1k" path="res://assets/tiles/r5/55.glb" id="1_p3qt6"]
+[ext_resource type="PackedScene" uid="uid://c3oso5whw57lx" path="res://assets/tiles/r7/75.glb" id="1_p3qt6"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node2D" type="Node3D"]
 
-[node name="552" parent="." instance=ExtResource("1_p3qt6")]
+[node name="752" parent="." instance=ExtResource("1_p3qt6")]

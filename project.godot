@@ -17,13 +17,28 @@ boot_splash/bg_color=Color(0.172293, 0.855734, 1, 1)
 boot_splash/image="uid://bg142e8afix1j"
 config/icon="uid://chu5h8dovobis"
 
+[compression]
+
+formats/zstd/long_distance_matching=true
+formats/zstd/compression_level=8
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/initial_position_type=0
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
 [global]
 
 Shadows_Enabled=true
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 global_illumination/gi/use_half_resolution=true
 

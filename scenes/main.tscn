@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://ce4jl6d85m1is"]
+[gd_scene load_steps=26 format=3 uid="uid://ce4jl6d85m1is"]
 
 [ext_resource type="Script" uid="uid://hha28k1fkybf" path="res://scenes/main.gd" id="1_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://ckvygh76al3t1" path="res://assets/env/citrus_orchard_puresky_1k.exr" id="1_tipki"]
 [ext_resource type="Script" uid="uid://dfudftihn5gd0" path="res://scenes/TileSelectorUI.gd" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bm3gjifrj0m3j" path="res://assets/ui/score_ai.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://jrb8kpnq235r" path="res://assets/ui/score_you.png" id="5_85g3d"]
@@ -10,39 +9,38 @@
 [ext_resource type="AudioStream" uid="uid://dq3i73y50gr0f" path="res://assets/ui/cinematic-intro-6097.mp3" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://bs145a66xechp" path="res://assets/ui/playagain.png" id="7_trceg"]
 [ext_resource type="Texture2D" uid="uid://tvpfgxsmmbyq" path="res://assets/ui/mainmenu.png" id="8_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://cf0c888kuglxu" path="res://models/board.glb" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cl7r1cxwkas5b" path="res://assets/ui/defeatpopup.png" id="9_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://1uo3if1gh2iu" path="res://assets/ui/Queen.png" id="10_muem4"]
+[ext_resource type="Texture2D" uid="uid://b324eeac8tj74" path="res://assets/ui/mapopen.png" id="11_yc10j"]
+[ext_resource type="Texture2D" uid="uid://c6cvifb1coki" path="res://assets/ui/mapbg.png" id="12_y6deb"]
 [ext_resource type="AudioStream" uid="uid://cn58ok200f604" path="res://assets/ui/queen.mp3" id="13_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://cd3885gulsfdr" path="res://assets/ui/button-ui-sound-effect-395762.mp3" id="13_jbj1t"]
+[ext_resource type="Texture2D" uid="uid://dt4gts2hmo2mn" path="res://assets/ui/mapclose.png" id="13_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://sg8fgbnnrfb0" path="res://assets/ui/difficultyPopup.png" id="14_jscy8"]
 [ext_resource type="AudioStream" uid="uid://pcmkkar80iyc" path="res://assets/ui/place.mp3" id="14_muem4"]
 [ext_resource type="AudioStream" uid="uid://dut1alvy80lha" path="res://assets/ui/win.mp3" id="15_dp3eg"]
+[ext_resource type="Texture2D" uid="uid://bcjwmbv6oprvd" path="res://assets/ui/startButtonBackground.png" id="15_pm3ni"]
 [ext_resource type="AudioStream" uid="uid://p8oj13i415tb" path="res://assets/ui/lose.mp3" id="16_0ld40"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tbgi4"]
-panorama = ExtResource("1_tipki")
-filter = false
-energy_multiplier = 0.7
-
-[sub_resource type="Sky" id="Sky_jyhfs"]
-sky_material = SubResource("PanoramaSkyMaterial_tbgi4")
-radiance_size = 1
+[ext_resource type="PackedScene" uid="uid://c4yksil2fltkm" path="res://assets/tiles/board1.glb" id="17_y6deb"]
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
-background_mode = 2
-background_energy_multiplier = 0.88
-sky = SubResource("Sky_jyhfs")
-ambient_light_sky_contribution = 0.95
-ambient_light_energy = 0.66
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 0.71
+sky_custom_fov = 67.6
 ssr_fade_in = 0.184672
-glow_enabled = true
+ssao_radius = 4.8
+ssao_power = 1.35188
+ssao_horizon = 0.0
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.0
+sdfgi_energy = 3.365
+glow_intensity = 5.76
 fog_mode = 1
 fog_density = 1.0
 fog_sky_affect = 0.095
-adjustment_enabled = true
-adjustment_brightness = 0.75
-adjustment_contrast = 1.18
-adjustment_saturation = 1.3
+adjustment_brightness = 0.83
+adjustment_saturation = 1.28
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
 
@@ -56,34 +54,29 @@ transform = Transform3D(9.776, 0, 0, 0, 9.776, 0, 0, 0, 9.776, 0, 0, 0)
 environment = SubResource("Environment_tbgi4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.282225, 0.569826, -0.771782, 0.613578, 0.511214, 0.601815, 0.737476, -0.643396, -0.205355, -8, 0, 3)
-light_color = Color(0.839736, 0.797411, 1.54018e-06, 1)
-light_energy = 0.874
+transform = Transform3D(0.0288692, 0.0582883, -0.0789466, 0.0627637, 0.0522928, 0.0615605, 0.0754374, -0.0658138, -0.0210061, -16.6948, 9.00161, 58.7488)
+light_energy = 0.0
 light_indirect_energy = 8.945
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_bias = 0.255
-directional_shadow_split_3 = 0.175
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 1.0
-directional_shadow_max_distance = 304.9
-directional_shadow_pancake_size = 0.0
 
 [node name="camera" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67185, 4.90996, -3.47791)
 script = ExtResource("1_0wfyh")
 
 [node name="Camera3D" type="Camera3D" parent="camera"]
-transform = Transform3D(7.89015e-10, 0.0988058, -0.026475, -2.94464e-09, 0.026475, 0.0988058, 0.102291, -4.99691e-16, 3.04852e-09, 15.3429, 76.9959, 39.4157)
+transform = Transform3D(7.89018e-10, 0.0988058, -0.026475, -2.94465e-09, 0.026475, 0.0988058, 0.102291, 8.17677e-16, 3.04853e-09, 14.1154, 78.9395, 34.1988)
 fov = 44.5
 
 [node name="TileSelectorUI" type="Control" parent="."]
 layout_mode = 3
-anchor_right = 0.159
+anchor_right = 1.168
 anchor_bottom = 0.991
-offset_right = -0.168015
-offset_bottom = -0.16803
+offset_right = 0.439697
+offset_bottom = -0.280029
+scale = Vector2(0.778528, 0.866133)
 script = ExtResource("3_tbgi4")
 
 [node name="ScoreAI" type="TextureRect" parent="TileSelectorUI"]
@@ -127,11 +120,11 @@ text = "0"
 [node name="ScrollContainer" type="ScrollContainer" parent="TileSelectorUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.791
+anchor_right = 0.232
 anchor_bottom = 1.0
 offset_left = 92.0
 offset_top = 86.0
-offset_right = 91.935
+offset_right = 7.62408
 offset_bottom = 86.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TileSelectorUI/ScrollContainer"]
@@ -198,11 +191,96 @@ offset_bottom = 40.0
 scale = Vector2(1.97661, 1.8625)
 texture = ExtResource("10_muem4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(201.96, 0, 0, 0, 60, 0, 0, 0, 221.227, -45, -7.56956, 80)
+[node name="MapButton" type="Button" parent="TileSelectorUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.185
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 68.5
+offset_bottom = 33.23
+scale = Vector2(0.174353, 0.177314)
+icon = ExtResource("11_yc10j")
 
-[node name="board" parent="StaticBody3D" instance=ExtResource("9_85g3d")]
-transform = Transform3D(0.00499998, 0, 0, 0, 0.005, 0, 0, 0, 0.00441045, 0.384128, 0.0705128, -0.216015)
+[node name="MapPopup" type="TextureRect" parent="TileSelectorUI"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 89.0
+offset_right = 1186.0
+offset_bottom = 785.0
+texture = ExtResource("12_y6deb")
+
+[node name="CloseButton" type="Button" parent="TileSelectorUI/MapPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.933
+anchor_top = -0.052
+anchor_right = 0.994
+anchor_bottom = -0.011
+offset_left = -4.97003
+offset_top = -49.808
+offset_right = 305.54
+offset_bottom = 301.656
+scale = Vector2(0.201954, 0.183521)
+icon = ExtResource("13_pm3ni")
+
+[node name="DifficultyPopup" type="Control" parent="TileSelectorUI"]
+anchors_preset = 0
+offset_left = 177.0
+offset_top = 96.0
+offset_right = 2134.0
+offset_bottom = 980.0
+
+[node name="background" type="TextureRect" parent="TileSelectorUI/DifficultyPopup"]
+layout_mode = 0
+offset_left = 147.0
+offset_right = 1919.0
+offset_bottom = 1024.0
+texture = ExtResource("14_jscy8")
+
+[node name="TitleLabel" type="Label" parent="TileSelectorUI/DifficultyPopup"]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 331.0
+offset_right = 1266.0
+offset_bottom = 495.0
+
+[node name="ValueLabel" type="Label" parent="TileSelectorUI/DifficultyPopup"]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 595.0
+offset_right = 1238.0
+offset_bottom = 678.0
+horizontal_alignment = 1
+
+[node name="DifficultySlider" type="HSlider" parent="TileSelectorUI/DifficultyPopup"]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 414.0
+offset_right = 1547.0
+offset_bottom = 585.0
+scale = Vector2(0.871537, 1.12367)
+
+[node name="StartButton" type="Button" parent="TileSelectorUI/DifficultyPopup"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 651.0
+offset_right = 1888.0
+offset_bottom = 1683.0
+scale = Vector2(0.346037, 0.247957)
+icon = ExtResource("15_pm3ni")
+
+[node name="HomeButton" type="Button" parent="TileSelectorUI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(201.96, 0, 0, 0, 42, 0, 0, 0, 221.227, -45, -7.56956, 80)
+
+[node name="board1" parent="StaticBody3D" instance=ExtResource("17_y6deb")]
+transform = Transform3D(0.00503159, 0, 0, 0, 0.00603793, 0, 0, 0, 0.00439395, 0.388985, 0.0852428, -0.214545)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.496, 0, 0, 0, 0.01, 0, 0, 0, 1.51, 0.245179, -0.170486, -0.726401)
@@ -229,4 +307,5 @@ stream = ExtResource("14_muem4")
 stream = ExtResource("15_dp3eg")
 
 [node name="DefeatSound" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2(614, 377)
 stream = ExtResource("16_0ld40")

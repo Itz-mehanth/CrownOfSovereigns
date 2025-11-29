@@ -30,7 +30,32 @@ extends Control
 ]
 
 var tile_images: Array = [
-	"res://assets/ui/forest.png"  # Use one image for now
+	"res://assets/TileImages/r11/117.jpg", "res://assets/TileImages/r11/116.jpg", "res://assets/TileImages/r11/115.jpg",
+	"res://assets/TileImages/r11/114.jpg", "res://assets/TileImages/r11/113.jpg", "res://assets/TileImages/r11/112.jpg",
+	"res://assets/TileImages/r11/111.jpg", "res://assets/TileImages/r10/107.jpg", "res://assets/TileImages/r10/106.jpg",
+	"res://assets/TileImages/r10/105.jpg", "res://assets/TileImages/r10/104.jpg", "res://assets/TileImages/r10/103.jpg",
+	"res://assets/TileImages/r10/102.jpg", "res://assets/TileImages/r10/101.jpg", "res://assets/TileImages/r9/97.jpg",
+	"res://assets/TileImages/r9/96.jpg", "res://assets/TileImages/r9/95.jpg", "res://assets/TileImages/r9/94.jpg",
+	"res://assets/TileImages/r9/93.jpg", "res://assets/TileImages/r9/92.jpg", "res://assets/TileImages/r9/91.jpg",
+	"res://assets/TileImages/r8/87.jpg", "res://assets/TileImages/r8/86.jpg", "res://assets/TileImages/r8/85.jpg",
+	"res://assets/TileImages/r8/84.jpg", "res://assets/TileImages/r8/83.jpg", "res://assets/TileImages/r8/82.jpg",
+	"res://assets/TileImages/r8/81.jpg", "res://assets/TileImages/r7/77.jpg", "res://assets/TileImages/r7/76.jpg",
+	"res://assets/TileImages/r7/75.jpg", "res://assets/TileImages/r7/74.jpg", "res://assets/TileImages/r7/73.jpg",
+	"res://assets/TileImages/r7/72.jpg", "res://assets/TileImages/r7/71.jpg", "res://assets/TileImages/r6/67.jpg",
+	"res://assets/TileImages/r6/66.jpg", "res://assets/TileImages/r6/65.jpg", "res://assets/TileImages/r6/64.jpg",
+	"res://assets/TileImages/r6/63.jpg", "res://assets/TileImages/r6/62.jpg", "res://assets/TileImages/r6/61.jpg",
+	"res://assets/TileImages/r5/57.jpg", "res://assets/TileImages/r5/56.jpg", "res://assets/TileImages/r5/55.jpg",
+	"res://assets/TileImages/r5/54.jpg", "res://assets/TileImages/r5/53.jpg", "res://assets/TileImages/r5/52.jpg",
+	"res://assets/TileImages/r5/51.jpg", "res://assets/TileImages/r4/47.jpg", "res://assets/TileImages/r4/46.jpg",
+	"res://assets/TileImages/r4/45.jpg", "res://assets/TileImages/r4/44.jpg", "res://assets/TileImages/r4/43.jpg",
+	"res://assets/TileImages/r4/42.jpg", "res://assets/TileImages/r4/41.jpg", "res://assets/TileImages/r3/37.jpg",
+	"res://assets/TileImages/r3/36.jpg", "res://assets/TileImages/r3/35.jpg", "res://assets/TileImages/r3/34.jpg",
+	"res://assets/TileImages/r3/33.jpg", "res://assets/TileImages/r3/32.jpg", "res://assets/TileImages/r3/31.jpg",
+	"res://assets/TileImages/r2/27.jpg", "res://assets/TileImages/r2/26.jpg", "res://assets/TileImages/r2/25.jpg",
+	"res://assets/TileImages/r2/24.jpg", "res://assets/TileImages/r2/23.jpg", "res://assets/TileImages/r2/22.jpg",
+	"res://assets/TileImages/r2/21.jpg", "res://assets/TileImages/r1/17.jpg", "res://assets/TileImages/r1/16.jpg",
+	"res://assets/TileImages/r1/15.jpg", "res://assets/TileImages/r1/14.jpg", "res://assets/TileImages/r1/13.jpg",
+	"res://assets/TileImages/r1/12.jpg", "res://assets/TileImages/r1/11.jpg"
 ]
 
 @export var fallback_image: String = "res://assets/ui/forest.png"
@@ -54,7 +79,9 @@ func _populate_tiles():
 	for child in vbox.get_children():
 		child.queue_free()
 
-	for scene_path in tile_scenes:
+	for i in range(tile_scenes.size()):
+		var scene_path = tile_scenes[i]
+		
 		var wrapper = VBoxContainer.new()
 		wrapper.custom_minimum_size = tile_size
 		wrapper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -68,8 +95,8 @@ func _populate_tiles():
 		btn.size_flags_vertical = Control.SIZE_EXPAND_FILL
 
 		var tex_rect = TextureRect.new()
-		if ResourceLoader.exists(tile_images[0]):
-			tex_rect.texture = load(tile_images[0])
+		if i < tile_images.size() and ResourceLoader.exists(tile_images[i]):
+			tex_rect.texture = load(tile_images[i])
 		elif ResourceLoader.exists(fallback_image):
 			tex_rect.texture = load(fallback_image)
 		tex_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -89,11 +116,7 @@ func _populate_tiles():
 
 func _on_button_gui_input(event: InputEvent, btn: Button, scene_path: String) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var now_ms = Time.get_ticks_msec()
-		var last_ms = last_click_times.get(btn, 0)
-		if now_ms - last_ms <= double_click_ms:
-			_select_tile(btn, scene_path)
-		last_click_times[btn] = now_ms
+		_select_tile(btn, scene_path)
 
 func _select_tile(btn: Button, scene_path: String) -> void:
 	# Highlight selected button
@@ -109,9 +132,6 @@ func _select_tile(btn: Button, scene_path: String) -> void:
 
 	# Notify main.gd
 	emit_signal("tile_selected", scene_path)
-
-	# Remove button from UI
-	remove_tile_button(scene_path)
 	print("Selected tile:", scene_path)
 
 func remove_tile_button(scene_path: String) -> void:

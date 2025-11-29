@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://l7fnmkrlkf68"]
-
-[ext_resource type="PackedScene" uid="uid://dtb8e12832kdb" path="res://assets/tiles/grass field.glb" id="1_wodie"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="grass field" parent="." instance=ExtResource("1_wodie")]
